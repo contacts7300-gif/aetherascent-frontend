@@ -70,7 +70,34 @@ export default function App() {
           </>
         )}
       </div>
-      <style>{`*{box-sizing:border-box;margin:0;padding:0} button{font-family:Inter,sans-serif}`}</style>
+      <Footer />
+      <style>{`*{box-sizing:border-box;margin:0;padding:0} button{font-family:Inter,sans-serif} @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}`}</style>
     </div>
+  )
+}
+
+function Footer() {
+  const links = [
+    { name: "Telegram", url: "https://t.me/AetherAscent", icon: "✈️" },
+    { name: "X / Twitter", url: "https://x.com/AscentAether", icon: "𝕏" },
+    { name: "Reddit", url: "https://www.reddit.com/u/Aether_Ascent", icon: "👽" },
+    { name: "Medium", url: "https://medium.com/@ascentaether", icon: "📝" }
+  ]
+  return (
+    <footer style={{ borderTop: "1px solid #1e2535", marginTop: "40px", padding: "24px 20px", textAlign: "center" }}>
+      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap", marginBottom: "12px" }}>
+          {links.map(l => (
+            <a key={l.name} href={l.url} target="_blank" rel="noopener noreferrer"
+              style={{ display: "flex", alignItems: "center", gap: "6px", padding: "6px 14px", background: "#0f1215", border: "1px solid #1e2535", borderRadius: "8px", color: "#7a8ba0", fontSize: "12px", fontWeight: 500, textDecoration: "none" }}>
+              <span>{l.icon}</span>{l.name}
+            </a>
+          ))}
+        </div>
+        <div style={{ fontSize: "11px", color: "#4a5568" }}>
+          © 2026 AetherAscent Intelligence System · Follow us for live signals
+        </div>
+      </div>
+    </footer>
   )
 }
